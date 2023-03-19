@@ -11,17 +11,17 @@ public class SearchPageStepDefs {
     Itinerary productPage = new Itinerary();
 
     @And("^the customer selects (.*)$")
-    public void customerSelectsHoliday(String holidaySelected){
+    public void customerSelectsHoliday(String holidaySelected) {
         searchResults.clickMoreInfoOnAProduct(holidaySelected);
         searchResults.waitForJStoLoad();
         searchResults.goToLinks("itinerary");
         productPage = new Itinerary();
         Assert.assertTrue("Expected itinerary days : 11 \n " +
-                        "Actual itinerary days: "+productPage.getNumberOfDaysItinerary(),
-                productPage.getNumberOfDaysItinerary()==11);
+                        "Actual itinerary days: " + productPage.getNumberOfDaysItinerary(),
+                productPage.getNumberOfDaysItinerary() == 11);
         Assert.assertTrue("Supplier phone number days is not displayed ",
                 !productPage.getSupplierPhoneText().isEmpty()
-                        && productPage.getSupplierPhoneText().length()>10);
+                        && productPage.getSupplierPhoneText().length() > 10);
     }
 
 

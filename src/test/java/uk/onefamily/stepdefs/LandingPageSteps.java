@@ -9,7 +9,7 @@ public class LandingPageSteps {
     LandingPage landingPage = new LandingPage();
 
     @Given("^a customer is on the mail travel webpage$")
-    public void landingPage(){
+    public void landingPage() {
         landingPage.getTitle();
         Assert.assertTrue("Title does not contain Mail Travel",
                 landingPage.getTitle().contains("Mail Travel"));

@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 import java.util.logging.Logger;
 
@@ -24,20 +25,6 @@ public class BrowserSetup {
 
     WebDriverWait webDriverWait = null;
 
-    public WebDriver getDriver() {
-        if(driver ==null){
-            initialiseBrowser();
-        }
-        return driver;
-    }
-
-    public WebDriverWait getWait(){
-        webDriverWait = new WebDriverWait(driver, Duration.ofMillis(30000));
-        return webDriverWait;
-    }
-
-
-
     /*
     Constructor:
     Gets the browser type from the env var browser
@@ -47,6 +34,18 @@ public class BrowserSetup {
     public BrowserSetup() {
         getBrowser();
         initialiseBrowser();
+    }
+
+    public WebDriver getDriver() {
+        if (driver == null) {
+            initialiseBrowser();
+        }
+        return driver;
+    }
+
+    public WebDriverWait getWait() {
+        webDriverWait = new WebDriverWait(driver, Duration.ofMillis(30000));
+        return webDriverWait;
     }
 
     public String getBrowser() {
@@ -96,9 +95,6 @@ public class BrowserSetup {
         options.addArguments("--no-sandbox");
         return options;
     }
-
-
-
 
 
 }

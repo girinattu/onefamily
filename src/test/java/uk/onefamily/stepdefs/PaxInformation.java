@@ -1,11 +1,12 @@
 package uk.onefamily.stepdefs;
 
-import com.beust.ah.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.testng.annotations.Test;
-import uk.onefamily.pages.*;
+import uk.onefamily.pages.Accommodation;
+import uk.onefamily.pages.Confirmation;
+import uk.onefamily.pages.DatesPrices;
+import uk.onefamily.pages.PsngersDetails;
 
 public class PaxInformation {
 
@@ -25,10 +26,10 @@ public class PaxInformation {
 
     @And("^the price is £(.*) per passenger and the customer can fill the passenger details$")
     public void priceCheckFillPaxDetails(String price) throws Exception {
-        String totalActualPrice = datesPrices.getSelectedTourPrice().replace("£","").replace(",","");
+        String totalActualPrice = datesPrices.getSelectedTourPrice().replace("£", "").replace(",", "");
         System.out.println(totalActualPrice);
         int actualPrice = Integer.valueOf(totalActualPrice);
-        int expectedPrice = Integer.valueOf(price)*2;
+        int expectedPrice = Integer.valueOf(price) * 2;
         Assert.assertTrue("Expected Price: £" + String.valueOf(price) + "\n" +
                         "Actual Price: " + datesPrices.getSelectedTourPrice(),
                 actualPrice == expectedPrice);

@@ -53,7 +53,7 @@ public class EmployeeObj {
         this.profile_image = profile_image;
     }
 
-    public String toString(){
-        return "{name:" +getEmployee_name()+",salary:"+getEmployee_salary()+",age:"+getEmployee_salary()+"}";
+    public String toString() {
+        return "{name:" + getEmployee_name() + ",salary:" + getEmployee_salary() + ",age:" + getEmployee_salary() + "}";
     }
 }

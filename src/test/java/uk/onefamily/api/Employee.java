@@ -22,34 +22,6 @@ public class Employee {
                 .build();
     }
 
-    public Response getEmployees(String url) {
-        Response response = null;
-        return baseClass.sendRequest(specBuilder, url, Method.GET);
-    }
-
-    public Response getEmployeeById(String id) {
-        Response response = null;
-        String url = "/employee/"+id;
-        return baseClass.sendRequest(specBuilder, url, Method.GET);
-    }
-
-    public Response addEmployees(String employeeStr){
-        String url = "create";
-        specBuilder.setBody(employeeStr).build();
-        return baseClass.sendRequest(specBuilder, url, Method.POST);
-    }
-
-    public Response UpdateEmployee(EmployeeObj employee){
-        String url = "update/"+employee.getId();
-
-        specBuilder.setBody(employee).build();
-        return baseClass.sendRequest(specBuilder, url, Method.PUT);
-    }
-
-    public Response deleteEmployee(EmployeeObj employee){
-        String url = "delete/"+employee.getId();
-        return baseClass.sendRequest(specBuilder, url, Method.DELETE);
-    }
     public static void main(String[] args) {
         Employee ee = new Employee();
 
@@ -58,6 +30,35 @@ public class Employee {
 //        System.out.println(listOfEmployees.size());
 //        listOfEmployees.stream().forEach(emp-> System.out.println(emp.getEmployee_name()));
 
+    }
+
+    public Response getEmployees(String url) {
+        Response response = null;
+        return baseClass.sendRequest(specBuilder, url, Method.GET);
+    }
+
+    public Response getEmployeeById(String id) {
+        Response response = null;
+        String url = "/employee/" + id;
+        return baseClass.sendRequest(specBuilder, url, Method.GET);
+    }
+
+    public Response addEmployees(String employeeStr) {
+        String url = "create";
+        specBuilder.setBody(employeeStr).build();
+        return baseClass.sendRequest(specBuilder, url, Method.POST);
+    }
+
+    public Response UpdateEmployee(EmployeeObj employee) {
+        String url = "update/" + employee.getId();
+
+        specBuilder.setBody(employee).build();
+        return baseClass.sendRequest(specBuilder, url, Method.PUT);
+    }
+
+    public Response deleteEmployee(EmployeeObj employee) {
+        String url = "delete/" + employee.getId();
+        return baseClass.sendRequest(specBuilder, url, Method.DELETE);
     }
 
 }

@@ -1,6 +1,5 @@
 package uk.onefamily.pages;
 
-import com.beust.jcommander.IDefaultProvider;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,18 +24,18 @@ public class BasePage {
         return browserSetup.getDriver();
     }
 
-    public static WebDriverWait getWait(){
+    public static WebDriverWait getWait() {
         return browserSetup.getWait();
     }
 
     public void acceptCookies() {
         getWait().until(ExpectedConditions.presenceOfElementLocated(acceptCookies));
-        if(getDriver().findElement(acceptCookies).isEnabled() && getDriver().findElement(acceptCookies).isDisplayed()){
+        if (getDriver().findElement(acceptCookies).isEnabled() && getDriver().findElement(acceptCookies).isDisplayed()) {
             getWait().until(ExpectedConditions.elementToBeClickable(acceptCookies));
             try {
                 Thread.sleep(2000);
+            } catch (Exception ee) {
             }
-            catch (Exception ee){}
             getDriver().findElement(acceptCookies).click();
         }
     }
@@ -58,9 +57,9 @@ public class BasePage {
         return wait.until(jsLoad);
     }
 
-    public void scrollDown(int scroller){
+    public void scrollDown(int scroller) {
         JavascriptExecutor jse = (JavascriptExecutor) getDriver();
-        jse.executeScript("window.scrollBy(0,"+String.valueOf(scroller)+")");
+        jse.executeScript("window.scrollBy(0," + String.valueOf(scroller) + ")");
     }
 
     public void goToLinks(String link) {
@@ -89,17 +88,17 @@ public class BasePage {
         }
     }
 
-    public WebElement getWebelementBy(By element){
-                return getDriver().findElement(element);
-        }
+    public WebElement getWebelementBy(By element) {
+        return getDriver().findElement(element);
+    }
 
-        public void closeBrowsers(){
-            getDriver().manage().deleteAllCookies();
-            browserSetup.closeBrowser();
-        }
+    public void closeBrowsers() {
+        getDriver().manage().deleteAllCookies();
+        browserSetup.closeBrowser();
+    }
 
-        public void takeScreenshots(){
-            File file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-            String screenshotBase64 = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BASE64);
-        }
+    public void takeScreenshots() {
+        File file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+        String screenshotBase64 = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BASE64);
+    }
 }

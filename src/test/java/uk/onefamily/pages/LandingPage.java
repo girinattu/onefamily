@@ -1,16 +1,14 @@
 package uk.onefamily.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class LandingPage  extends BasePage{
+public class LandingPage extends BasePage {
 
 
     private String searchText_id = "searchtext_freetext_search_form";
 
     private String searchButton_id = ".nbf_button";
-
 
 
     public void searchByDestination(String searchStr) {
@@ -24,8 +22,6 @@ public class LandingPage  extends BasePage{
     public String getTitle() {
         return getDriver().getTitle().trim();
     }
-
-
 
 
 }
