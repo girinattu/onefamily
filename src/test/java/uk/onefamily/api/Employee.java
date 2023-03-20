@@ -22,16 +22,6 @@ public class Employee {
                 .build();
     }
 
-    public static void main(String[] args) {
-        Employee ee = new Employee();
-
-//        ResponseBody response = ee.getEmployees("employee");
-//        List<EmployeeObj> listOfEmployees = response.jsonPath().getList("data",EmployeeObj.class);
-//        System.out.println(listOfEmployees.size());
-//        listOfEmployees.stream().forEach(emp-> System.out.println(emp.getEmployee_name()));
-
-    }
-
     public Response getEmployees(String url) {
         Response response = null;
         return baseClass.sendRequest(specBuilder, url, Method.GET);
